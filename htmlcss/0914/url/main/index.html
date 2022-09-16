@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>경로설정</title>
+</head>
+
+<body>
+  <h1>***경로 설정***</h1>
+
+  <h2>**절대 경로**</h2>
+  <p>1. 최상위 디렉초리부터 순차적으로 경로 작성</p>
+  <p>2. 드라이브명(C:··· D:···)이나 프로토콜명(http://··· ftp://···)으로 시작</p>
+  <p>3. 기준 파일의 위치와 상관없이 대상 파일의 경로가 동일</p>
+  <p>4. 다른 사이트의 자원 사용 시</p>
+  <p>
+    ex) &lt;a href="http://www.naver.com"&gt;네이버&lt;/a&gt;
+        &lt;img src="c:/omg/main.jpg" alt=""&gt;
+  </p>
+  <p>
+    <a href="http://www.naver.com">네이버</a>
+  </p>
+  <p>
+    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="다음로고">
+  </p>
+
+  <hr>
+
+  <h2>**상대 경로**</h2>
+  <h3>* 1. 동일한 디텍토리에 있는 경우 *</h3>
+  <p>- 파일명 확장자</p>
+  <p>
+    ex) &lt;a href="notice.html"&gt;공지사항&lt;/a&gt;
+        &lt;img src="logo.png" alt=""&gt;
+  </p>
+  <p>
+    <img src="1.jpg" alt="뉴욕" style="width: 500px;">
+  </p>
+
+  <h3>* 2. 하위 디텍토리에 있는 경우 *</h3>
+  <p>- 폴더명/파일명,확장자</p>
+  <p>
+    ex) &lt;a href="html/notice.html"&gt;공지사항&lt;/a&gt;
+        &lt;img src="images/logo.png" alt=""&gt;
+  </p>
+  <p>
+    <img src="images/2.jpg" alt="로마" style="width: 500px;">
+  </p>
+
+  <h3>* 3. 상위 디텍토리에 있는 경우 *</h3>
+  <p>- /최상위폴더 : 최상위 디렉토리로</p>
+  <p>- ../파일명.확장자 : 한 수준만 위로</p>
+  <p>
+    ex) &lt;a href="../notice.html"&gt;공지사항&lt;/a&gt;
+        &lt;img src="../../logo.png" alt=""&gt;
+  </p>
+  <p>
+    <img src="../3.jpg" alt="부다페스트" style="width: 500px;">
+  </p>
+
+  <h3>* 4. 복합 경로 *</h3>
+  <p>- ../폴더명/파일명.확장자</p>
+  <p>
+    ex) &lt;a href="../html/notice.html"&gt;공지사항&lt;/a&gt;
+        &lt;img src="../../images/icon/logo.png" alt=""&gt;
+  </p>
+  <p>
+    <img src="../sub/4.png" alt="할슈타트" style="width: 500px;">
+  </p>
+
+
+</body>
+
+</html>

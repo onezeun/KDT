@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>테이블</title>
+  <style>
+    body {
+      font-size: 24px;
+    }
+
+    table {
+      border: 1px solid #000;
+      font-size: 24px;
+    }
+
+    td,
+    th {
+      width: 200px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+
+    sel {
+      background: #0077ff;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <table summary="삼성, 애플 제품별 판매가격 비교">
+    <caption> 제조사별 판매가격</caption>
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>삼성</th>
+        <th>애플</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>스마트폰</th>
+        <td>150,000</td>
+        <td>160,000</td>
+      </tr>
+      <tr>
+        <th>태블릿</th>
+        <td>170,000</td>
+        <td>190,000</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>합계</th>
+        <td>320,000</td>
+        <td>350,000</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+</html>

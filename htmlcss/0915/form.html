@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>웹 폼</title>
+  <style type="text">
+    @import "daum.css";
+  </style>
+</head>
+
+<body>
+  <form name="폼 요소의 이름" action="데이터를 처리할 페이지 경로" method="데이터 전송 방식">
+    <p>
+      text
+      <input type="text" name="" id="" size="10" value="홍길동" placeholder="아이디" maxlength="10" minlength="2" readonly
+        disabled>
+    </p>
+    <p>
+      password
+      <input type="password" name="" id="">
+    </p>
+    <p>
+      checkbox
+      <input type="checkbox" name="" id="" value="a" checked> HTML
+      <input type="checkbox" name="" id="" value="b"> CSS
+      <input type="checkbox" name="" id="" value="c" checked> JS
+    </p>
+    <p>
+      radio
+      <input type="radio" name="yn" id="" value="y" checked> Yes
+      <input type="radio" name="yn" id="" value="n"> No
+    </p>
+    <p>
+      image
+      <input type="image" name="" id="" src="" alt="">
+    </p>
+    <p>
+      file
+      <input type="file" name="" id="">
+    </p>
+    <p>
+      hidden
+      <input type="hidden" name="" id="">
+    </p>
+    <p>
+      button
+      <input type="button" value="그냥 버튼">
+    </p>
+    <p>
+      submit
+      <input type="submit" value="전송하기">
+    </p>
+    <p>
+      reset
+      <input type="reset" value="다시 쓰기">
+    </p>
+    <p>
+      select
+      <select name="" id="">
+        <option value="">항목 1</option>
+        <option value="">항목 2</option>
+        <option value="">항목 3</option>
+        <option value="">항목 4</option>
+        <option value="">항목 5</option>
+        <option value="">항목 6</option>
+        <option value="">항목 7</option>
+      </select>
+    </p>
+    <p>
+      select
+      <select name="" id="" size="4">
+        <option value="">항목 1</option>
+        <option value="">항목 2</option>
+        <option value="">항목 3</option>
+        <option value="">항목 4</option>
+        <option value="">항목 5</option>
+        <option value="">항목 6</option>
+        <option value="">항목 7</option>
+      </select>
+    </p>
+  </form>
+
+  <p>
+    select
+    <select name="" id="" size="10" multiple>
+      <optgroup label="Group 1">
+      <option value="">항목 1</option>
+      <option value="">항목 2</option>
+      <option value="">항목 3</option>
+      <option value="">항목 4</option>
+    </optgroup>
+    <optgroup label="Group 2">
+      <option value="">항목 5</option>
+      <option value="">항목 6</option>
+      <option value="">항목 7</option>
+      <option value="">항목 8</option>
+    </optgroup>
+    </select>
+  </p>
+
+  <p>
+    datalist (autocomplete)
+    <input type="text" list="list_items">
+    <datalist id="list_items">
+      <option>Illustrator</option>
+      <option>Photoshop</option>
+      <option>HTML</option>
+      <option>CSS</option>
+      <option>Javascript</option>
+      <option>j-Query</option>
+      <option>My-SQL</option>
+      <option>PHP</option>
+      <option>Vue</option>
+      <option>React</option>
+    </datalist>
+  </p>
+
+<p>
+  textarea
+  <textarea name="" id="" cols="15" rows="5"></textarea>
+</p>
+
+<p>
+  button type : submit, reset
+  <button type="">안뇽</button>
+</p>
+
+
+</html>
