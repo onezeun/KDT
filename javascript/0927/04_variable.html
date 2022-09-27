@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var a = 1;
+    a = 2;            // 재할당(O)
+    var a = 3;        // 재선언(O)
+
+    let b = 1;
+    b = 2;            // 재할당(O)
+    //let b = 3;      // 재선언(X)
+
+    const c = 1;
+    //c = 2;          // 재할당(X)
+    //const c = 3;    // 재선언(X)
+
+
+    
+    // 전역변수 : 문장 어디에서나 사용 가능한 변수
+    var txt1 = 1;
+    function test1() {
+      document.write(txt1);
+    };
+
+    function test2() {
+      document.write(txt1);
+    };
+
+    document.write(txt1);
+    test1();
+    test2();
+
+
+    // 지역 변수 : 함수 안에서 만들어진 변수는 그 함수 안에서만 사용 가능
+    var txt2 = 3;
+    function local_test1() {
+      var txt2 = 1;
+      console.log("function1 : " + txt2);
+    };
+
+    function local_test2() {
+      console.log("function2 : " + txt2);
+    };
+
+    console.log("console : " + txt2);
+    local_test1();
+    local_test2();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
