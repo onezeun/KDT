@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var score = prompt("시험점수를 입력하세요");
+
+    if (score >= 90 && score <= 100) {
+      document.write("입력된 점수:" + score + "<br>")
+      document.write("등급 : A")
+    } else if (score >= 80 && score <= 89) {
+      document.write("입력된 점수:" + score + "<br>")
+      document.write("등급 : B")
+    } else if (score >= 70 && score <= 79) {
+      document.write("입력된 점수:" + score + "<br>")
+      document.write("등급 : C")
+    } else if (score >= 60 && score <= 69) {
+      document.write("입력된 점수:" + score + "<br>")
+      document.write("등급 : D")
+    } else if (score >= 0 && score <= 59) {
+      document.write("입력된 점수:" + score + "<br>")
+      document.write("등급 : F")
+    } else {  // 예외처리
+      document.write("잘못된 점수입니다.")
+    };
+
+  </script>
+</body>
+
+</html>
