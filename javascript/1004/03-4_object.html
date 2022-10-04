@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트</title>
+  <style>
+    .red {
+      color: red;
+      border: 2px solid red;
+    }
+
+    .green {
+      color: green;
+      border: 2px solid green;
+    }
+
+    .blue {
+      color: blue;
+      border: 2px solid blue;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      var rBtn = document.getElementById("rBtn");
+      var gBtn = document.getElementById("gBtn");
+      var bBtn = document.getElementById("bBtn");
+
+      rBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "red";
+      }
+
+      gBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "green";
+      }
+
+      bBtn.onclick = function () {
+        var txt = document.getElementById("changeText");
+        txt.className = "blue";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용됩니다.</p>
+  <p><button type="button" id="rBtn">빨강</button></p>
+  <p><button type="button" id="gBtn">초록</button></p>
+  <p><button type="button" id="bBtn">파랑</button></p>
+
+
+</body>
+
+</html>

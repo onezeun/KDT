@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체접근</title>
+  <script>
+    function changeColor() {
+      var g_color = document.getElementById("sc").value;
+
+      var txt = document.getElementById("changeText");
+      txt.style.color = g_color;
+    }
+  </script>
+  
+</head>
+
+<body>
+  <form name="form1" action="" method="">
+    <p id="changeText">버튼을 클릭하면 이 문장의 글자색이 변합니다.</p>
+    <p><input type="text" name="sc" id="sc"> 색상 입력</p>
+    <p><button type="button" onclick="changeColor()">글자 색상 바꾸기</button></p>
+  </form>
+</body>
+
+</html>
