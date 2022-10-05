@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #big_img {
+      width: 650px;
+      height: 600px;
+    }
+
+    .thumb_img img {
+      width: 150px;
+      height: 105px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    // function changeImage() {
+    //   // 객체 생성
+    //   var big_img = document.getElementById("big_img");
+
+    //   // 속성값 가져오기
+    //   // HTML-DOM
+    //   big_img.src="";
+
+    //   // DOM core
+    //   big_img.attribute("src");
+    // };
+
+    function changeImage(value) {
+      var big_img = document.getElementById("big_img");
+      big_img.setAttribute("src", value);
+    };
+  </script>
+</head>
+<body>
+  <p>
+    <img src="images/image1.jpg" id="big_img" alt="원본 이미지" abc="TEST">
+  </p>
+  <p class="thumb_img">
+    <img src="images/image1.jpg" id="img1" onclick="changeImage(this.src)">
+    <img src="images/image2.jpg" id="img2" onclick="changeImage(this.src)">
+    <img src="images/image3.jpg" id="img3" onclick="changeImage(this.src)">
+    <img src="images/image4.jpg" id="img4" onclick="changeImage(this.src)">
+  </p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {width:100px;height: 30px;}
+    .on {background: blue; color: white;}
+  </style>
+
+<script>
+    function btn1_on() {
+      var btn1 = document.querySelector(".btn1");
+      var btn2 = document.querySelector(".btn2");
+  
+      btn1.setAttribute("class", "btn1 on");
+      btn2.setAttribute("class", "btn2");
+    };
+  
+    function btn2_on() {
+      var btn1 = document.querySelector(".btn1");
+      var btn2 = document.querySelector(".btn2");
+  
+      btn1.setAttribute("class", "btn1");
+      btn2.setAttribute("class", "btn2 on");
+    };
+  </script>
+
+</head>
+<body>
+  <button type="button" class="btn1" onclick="btn1_on()">BUTTON 1</button>
+  <button type="button" class="btn2" onclick="btn2_on()">BUTTON 2</button>
+
+</body>
+</html>

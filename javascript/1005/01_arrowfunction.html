@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arrowfunction</title>
+</head>
+
+<body>
+  <form name="form1" action="" method="">
+    <p> * 버튼을 클릭하면 텍스트 필드에 글자가 나타납니다.</p>
+    <p>
+      <input type="text" name="txt" id="uid">
+      <button type="button" onclick="printText()">글자출력</button>
+    </p>
+  </form>
+
+  <script>
+    var printText = () => {
+      let inputValue = document.getElementById("uid");
+
+      if (inputValue.value == "") {
+        inputValue.value = "안녕하세용";
+      } else {
+        inputValue.value = "";
+      }
+    }
+  </script>
+</body>
+
+</html>
