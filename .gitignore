@@ -1,6 +1,7 @@
 htmlcss/**/*.docx
 htmlcss/**/*.xlsx
 *.txt
+*.sql
 
 과제/
 
