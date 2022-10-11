@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>검색결과</title>
+  <style>
+    a {
+      color: black; text-decoration:none
+    }
+
+    a:hover { color: rgb(32, 188, 250);}
+  </style>
+  <script>
+    // 사용하기 누르면 값이 join 페이지 아이디에 들어가게
+    const return_addr = (psCode, addr) => {
+      opener.document.getElementById("postalCode").value = psCode;
+      opener.document.getElementById("addr1").value = addr;
+      window.close();
+    }
+  </script>
+</head>
+
+<body>
+  <p>
+    <b>"역삼동"</b> 검색 결과
+  </p>
+  <hr>
+  <p>
+    <a href="#" onclick="return_addr('06253','서울 강남구 강남대로 298 (푸르덴셜타워)')">
+      06253 서울 강남구 강남대로 298 (푸르덴셜타워)
+    </a>
+  </p>
+  <p>
+    <a href="#" onclick="return_addr('12345','서울 강남구 강남대로 302 (동희빌딩)')">
+      12345 서울 강남구 강남대로 302 (동희빌딩)
+    </a>
+  </p>
+  <p>
+    <a href="#" onclick="return_addr('12345','서울 강남구 강남대로 302-2')">
+      12345 서울 강남구 강남대로 302-2
+    </a>
+  </p>
+</body>
+
+</html>

@@ -53,6 +53,7 @@
 
     /* 유효성 검사 */
     window.onload = function () {
+      var join_form = document.getElementById("join_form");
       var u_name = document.getElementById("u_name");
       var u_id = document.getElementById("u_id");
       var pwd = document.getElementById("pwd");
@@ -61,6 +62,8 @@
       var email_id = document.getElementById("email_id");
       var email_dns = document.getElementById("email_dns");
       var apply = document.getElementById("apply");
+      var id_check = document.getElementById("id_check");
+      var addr_btn = document.getElementById("addr_btn");
 
       var err_name = document.getElementById("err_name");
       var err_id = document.getElementById("err_id");
@@ -85,7 +88,7 @@
         }
         return true;
       }
-      u_name.addEventListener('change', nameCheck);
+      u_name.addEventListener('input', nameCheck);
 
       const idCheck = () => {
         var id_len = u_id.value.length
@@ -103,7 +106,7 @@
           return true;
         }
       }
-      u_id.addEventListener('change', idCheck);
+      u_id.addEventListener('input', idCheck);
 
       const pwdCheck = () => {
         var pwd_len = pwd.value.length
@@ -185,6 +188,53 @@
         }
       }
       apply.addEventListener('change', applyCheck);
+
+      /* 이메일 선택 함수 */
+      const changeEmail = () => {
+        var email_dns = document.getElementById("email_dns");
+        var email_sel = document.getElementById("email_sel");
+        var err_email = document.getElementById("err_email");
+
+        var idx = email_sel.options.selectedIndex;
+        var val = email_sel.options[idx].value;
+
+        email_dns.value = val;
+        document.getElementById("err_email").style.display = "none";
+
+        if (val == 0 && !email_dns.value) {
+          err_email.style.display = "block"
+          err_email.innerHTML = "이메일을 입력하세요"
+        }
+      }
+      email_sel.addEventListener('change', changeEmail);
+
+      /* 아이디 중복검사 팝업창 띄우기 */
+      const idSearch = () => {
+        // window.close : window.open으로 열린 창닫기
+        // window.open("팝업될 문서 경로", "팝업 되었을 때의 이름", "옵션")
+        window.open("id_search.html", "", "width=600, height=300");
+      }
+      id_check.addEventListener('click', idSearch);
+
+
+      /* 주소 검색 */
+      const addr_search = () => {
+        window.open("addr_search.html", "", "width=600, height=300")
+      }
+
+      addr_btn.addEventListener('click', addr_search);
+
+      const validation = () => {
+        var i = 1;
+        if (i == 1) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      join_form.addEventListener('submit', validation)
+      // (nameCheck() && idCheck() && pwdCheck() && repwdCheck() && mobileCheck() && emailCheck() && applyCheck())
     }
 
     // const validation = () => {
@@ -194,39 +244,17 @@
     //     return true;
     //   }
     // }
-    // (nameCheck() && idCheck() && pwdCheck() && repwdCheck() && mobileCheck() && emailCheck() && applyCheck())/
+    // // (nameCheck() && idCheck() && pwdCheck() && repwdCheck() && mobileCheck() && emailCheck() && applyCheck())
 
 
-    /* 이메일 선택 함수 */
-    const changeEmail = () => {
-      var email_dns = document.getElementById("email_dns");
-      var email_sel = document.getElementById("email_sel");
-      var err_email = document.getElementById("err_email");
 
-      var idx = email_sel.options.selectedIndex;
-      var val = email_sel.options[idx].value;
 
-      email_dns.value = val;
-      document.getElementById("err_email").style.display = "none";
-
-      if (val == 0 && !email_dns.value) {
-        err_email.style.display = "block"
-        err_email.innerHTML = "이메일을 입력하세요"
-      }
-    }
-
-    /* 아이디 중복검사 팝업창 띄우기 */
-    const idSearch = () => {
-      // window.close : window.open으로 열린 창닫기
-      // window.open("팝업될 문서 경로", "팝업 되었을 때의 이름", "옵션")
-      window.open("id_search.html", "", "width=600, height=300");
-    }
   </script>
 </head>
 
 <body>
   <!-- 실제회원가입은 post로 -->
-  <form name="join_form" action="insert.php" method="get" onsubmit="return form_check();">
+  <form name="join_form" id="join_form" action="insert.php" method="get">
     <!-- return : submit을 function으로 바꿔주라 -->
 
     <fieldset>
@@ -239,7 +267,7 @@
       <p class="c_line">
         <label for="u_id" class="c_title">아이디</label>
         <input type="text" name="u_id" id="u_id">
-        <button type="button" onclick="idSearch()">중복확인</button>
+        <button type="button" id="id_check">중복확인</button>
         <br><span class="dsp_txt">* 아이디는 4~12글자만 입력할 수 있습니다.</span>
         <br><span id="err_id" class="err_txt"></span>
       </p>
@@ -264,7 +292,7 @@
         <label for="email_id" class="c_title">이메일</label>
         <input type="text" name="email_id" id="email_id" size="12"> @
         <input type="text" name="email_id" id="email_dns" size="12">
-        <select name="email_sel" id="email_sel" onchange="changeEmail()">
+        <select name="email_sel" id="email_sel">
           <option value="">직접입력</option>
           <option value="naver.com">네이버</option>
           <option value="kakao.com">다음</option>
@@ -279,8 +307,8 @@
       </p>
       <p class="c_line">
         <label for="posralCode" class="c_title">주소</label>
-        <input type="text" name="posralCode" id="posralCode">
-        <button type="button">주소검색</button><br>
+        <input type="text" name="postalCode" id="postalCode">
+        <button type="button" id="addr_btn">주소검색</button><br>
         <label for="addr1" class="c_title">기본 주소</label>
         <input type="text" name="addr1" id="addr1" size="30"><br>
         <label for="addr1" class="c_title">상세 주소</label>
