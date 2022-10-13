@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* overflow: hidden : 상자 밖으로 나가지마 */
+    .fade { width: 200px; height: 200px; overflow: hidden; margin-bottom: 20px; position: relative; }
+    .fade span { display: block; width: 200px; height: 200px; background: #000; position: absolute; left: 0; top: 0; opacity: 0.6; }
+
+    .fade2 { width: 200px; height: 200px; background: #000; margin-bottom: 20px; }
+    .fade2 img { opacity: 0.4; }
+
+    .fade3 { width: 200px; height: 200px; position: relative; }
+    .fade3 span { display: block; width: 200px; height: 200px; background: #000; position: absolute; left: 0; top: 0; opacity: 0.6; }
+    .fade3 span:hover { opacity: 0; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $(".fade span").mouseenter(function(){
+        $(this).animate({opacity: 0});
+      });
+      $(".fade span").mouseleave(function(){
+        $(this).stop().animate({opacity: 0.6});
+      })
+
+      $(".fade2 img").mouseenter(function(){
+        $(this).stop().animate({opacity: 1});
+      });
+      $(".fade2 img").mouseleave(function(){
+        $(this).stop().animate({opacity: 0.4});
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <div class="fade">
+    <a href="#">
+      <img src="img.png" width="200" height="200">
+    </a>
+    <span></span>
+  </div>
+
+  <div class="fade2">
+    <a href="#">
+      <img src="img.png" width="200" height="200">
+    </a>
+  </div>
+
+  <div class="fade3">
+    <a href="#">
+      <img src="img.png" width="200" height="200">
+    </a>
+    <span></span>
+  </div>
+</body>
+
+</html>

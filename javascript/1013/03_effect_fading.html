@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #pop {
+      width: 300px;
+      height: 400px;
+      margin: 50px auto;
+      background: #09f;
+    }
+
+    .hover_box {
+      width: 100px;
+      height: 100px;
+      margin: 50px auto;
+      background: red;
+      opacity: 0.5;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("a:first").on("click", function () {
+        $("#pop").fadeIn();
+      });
+      $("a:eq(1)").on("click", function () {
+        $("#pop").fadeTo("slow", 0.5);
+      });
+      $("a:eq(2)").on("click", function () {
+        $("#pop").fadeTo("slow", 1);
+      });
+      $("a:eq(3)").on("click", function () {
+        $("#pop").fadeToggle();
+      });
+      $("a:last").on("click", function () {
+        $("#pop").fadeOut("slow", function () {
+          alert("페이드를 완료하였습니다.")
+        });
+      });
+      $(".hover_box").hover(function() {
+        $(this).fadeTo("fast", 1);
+      }, function() {
+        $(this).fadeTo("fast", 0.5);
+      });
+
+
+    });
+  </script>
+</head>
+
+<body>
+  <a href="#">보이기</a>
+  <a href="#">50%</a>
+  <a href="#">100%</a>
+  <a href="#">바꾸기</a>
+  <div id="pop">
+    <a href="#">감추기</a>
+  </div>
+  <div class="hover_box"></div>
+</body>
+
+</html>

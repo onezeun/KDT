@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* overflow: hidden : 상자 밖으로 나가지마 */
+    .m1 {width: 200px; height: 200px; overflow: hidden; margin-bottom: 20px;}
+    .m1 img {width: 200px; height: 200px; position: relative;}
+
+    .m2 {width: 200px;height: 200px;overflow: hidden; margin-bottom: 20px;}
+    .m2 img {width: 200px; height: 200px; position: relative; transition:transform 0.5s}
+    .m2 img:hover{transform:scale(1.1, 1.1)} /* 1.2 = 120% */
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".m1 img").hover(function(){
+        $(this).animate({width:220, height:220, left:-10, top:-10})
+      }, function(){
+        $(this).animate({width:200, height:200, left:0, top:0})
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="m1">
+    <img src="img.png">
+  </div>
+
+  <div class="m2">
+    <img src="img.png">
+  </div>
+</body>
+
+</html>

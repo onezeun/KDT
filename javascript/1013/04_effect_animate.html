@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #pop {
+      width: 200px;
+      height: 120px;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      background: skyblue;
+    }
+    .big_box { width: 800px; height: 300px; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("a:first").on("click", function() {
+        $("#pop").stop().animate({ width:800, height:300, left:200, top:200 }, 2000);
+      });
+      $("a:eq(1)").on("click", function() {
+        $("#pop").stop().animate({ width:200, height:120, left:50, top:50 }, 2000);
+      });
+      $("a:eq(2)").on("click", function() {
+        $("#pop").animate({height:0, opacity:0 });
+      });
+      $("a:eq(3)").on("click", function() {
+        $("#pop").animate({width:200, height:120, opacity:1 });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <a href="#">크게</a>
+  <a href="#">작게</a>
+  <a href="#">fade+slide</a>
+  <a href="#">나와</a>
+  <div id="pop"></div>
+</body>
+
+</html>
