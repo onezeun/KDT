@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 400px;
+      height: 300px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .acco ul {
+      width: 500px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .acco ul li {
+      position: absolute;
+      top: 0;
+      background: #000;
+    }
+
+    .acco ul li img {
+      opacity: 0.6;
+    }
+
+    .acco ul li img:hover {
+      opacity: 1;
+    }
+
+    .acco1 {
+      left: 0;
+    }
+
+    .acco2 {
+      left: 50px;
+    }
+
+    .acco3 {
+left: 100px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".acco1").click(function(){
+        $(".acco2").animate({left:400});
+        $(".acco3").animate({left:450});
+      });
+      $(".acco2").click(function(){
+        $(".acco2").animate({left:50});
+        $(".acco3").animate({left:450});
+      });
+      $(".acco3").click(function(){
+        $(".acco2").animate({left:50});
+        $(".acco3").animate({left:100});
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="acco">
+    <ul>
+      <li class="acco1">
+        <a href="#"><img src="img1.jpg"></a>
+      </li>
+      <li class="acco2">
+        <a href="#"><img src="img2.jpg"></a>
+      </li>
+      <li class="acco3">
+        <a href="#"><img src="img3.jpg"></a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>후ㅠ</title>
+  <style>
+    ul, li, h2, p {margin: 0; padding: 0; list-style: none;}
+    a {text-decoration: none;}
+    .blind {position: absolute; left: -9999px; height: -9999px;}
+
+    .tab_menu {width: 300px; height: 300px; border: 1px solid #999; position: relative;}
+    .tab_menu a {display: block; height: 100%; text-align: center; line-height: 40px; font-size: 16px; font-weight: bold; color: #fff;}
+    .list1 {width: 100px; height: 40px; background: rgb(255,203,61); position: absolute; top: 0; left: 0;}
+    .list2 {width: 100px; height: 40px; background: rgb(157,246,84); position: absolute; top: 0; left: 100;}
+    .list3 {width: 100px; height: 40px; background: rgb(74,189,255); position: absolute; top: 0; left: 200;}
+
+    .tab1 {width: 300px; height: 260px; background: rgb(255,203,61); position: absolute; top: 41; left: 0;}
+    .tab2 {width: 300px; height: 260px; background: rgb(157,246,84); position: absolute; top: 41; left: 0;}
+    .tab3 {width: 300px; height: 260px; background: rgb(74,189,255); position: absolute; top: 41; left: 0;}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="tab_menu">
+    <div class="list">
+      <h2 class="blind">TITLE</h2>
+      <ul>
+        <li class="list1"><a href="#">1</a></li>
+        <li class="list2"><a href="#">2</a></li>
+        <li class="list3"><a href="#">3</a></li>
+      </ul>
+    </div>
+
+    <div class="tabs">
+      <div class="tab1">
+        <h2 class="blind"><a href="#">1</a></h2>
+        <p>11111</p>
+      </div>
+      <div class="tab2">
+        <h2 class="blind"><a href="#">2</a></h2>
+        <p>22222</p>
+      </div>
+      <div class="tab3">
+        <h2 class="blind"><a href="#">3</a></h2>
+        <p>33333</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

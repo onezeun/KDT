@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .m1 { width: 200px; height: 200px; background: url(img1.jpg); background-size: 100% 100%; margin-bottom: 20px; position: relative; overflow: hidden;}
+    .m1 a { width: 200px; height: 200px; position: absolute; left: 0; top: 160px; background: rgba(0,0,0,0.7); line-height: 200px; font-size: 20px; color: white; font-weight: bold; text-align: center; text-decoration: none;}
+
+    .m2 { width: 200px; height: 200px; background: url(img2.jpg); background-size: 100% 100%; margin-bottom: 20px; position: relative; }
+    .m2 span { width: 200px; height: 40px; position: absolute; left: 0; top: 160px; background: rgba(0,0,0,0.6); }
+
+    .m3 { width: 200px; height: 200px; background: url(img3.jpg); background-size: 100% 100%; margin-bottom: 20px; position: relative; overflow: hidden; }
+    .m3 span{ width: 200px; height: 200px; position: absolute; left: 0; top: 160px; background: rgba(0,0,0,0.6); transition: top 0.4s;}
+    .m3:hover span { top: 0; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".m1 a").mouseenter(function() {
+        $(this).animate({top:0});
+      })
+
+      $(".m1 a").mouseleave(function() {
+        $(this).animate({top:160});
+      })
+
+      $(".m2").mouseenter(function() {
+        $(".m2 span").animate({top:0, height: 200}, 250);
+      })
+
+      $(".m2").mouseleave(function() {
+        $(".m2 span").animate({top:160, height: 40}, 250);
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <div class="m1"><a href="#">하찌킹</a></div>
+  <div class="m2"><span></span></div>
+  <div class="m3"><span></span></div>
+</body>
+
+</html>

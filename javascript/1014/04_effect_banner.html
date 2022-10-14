@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리본배너</title>
+  <style>
+    /* 스크롤바 없어지면서 화면 흔들리는거 조정 */
+    body {overflow-y: scroll;}
+    body, div {margin: 0; padding: 0;}
+    .wrap {text-align: center; background:url(images/bg_wrap.jpg) repeat-x; position: relative; top:70px;}
+    .adv {width: 100%; height: 70px; background: #a9e3f9 url(images/banner.jpg) no-repeat center; position: absolute;}
+    .adv a {display:block; width:38px; height:38px; background:url(images/close.jpg) no-repeat; text-indent: -9999px; position: absolute; right: 16px; top: 16px;}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // 창이 더이상 뜨지 않게 하려면 쿠키 추가하면 됨 (오늘은 안할꺼임~~)
+      $(".adv a").click(function(){
+        $(".wrap").animate({top:0})
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <div class="adv">
+    <a href="#">닫기</a>
+  </div>
+  <div class="wrap">
+    <header></header>
+    <main>
+      <img src="images/content.jpg" alt="">
+    </main>
+    <footer></footer>
+  </div>
+</body>
+
+</html>
