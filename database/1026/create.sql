@@ -19,6 +19,51 @@ create table owner_table (
   FOREIGN KEY (u_idx) REFERENCES user (u_idx)
 );
 
+-- 숙소 LODGING
+create table lodging (
+  ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
+  o_idx INT,
+  ldg_name VARCHAR(50) NOT NULL,
+  ldg_addr VARCHAR(100) NOT NULL,
+  ldg_tel VARCHAR(20) NOT NULL,
+  ldg_info TEXT,
+  ldg_maxnop INT NOT NULL,
+  toilet INT NOT NULL,
+  shower INT NOT NULL,
+  FOREIGN KEY (o_idx) REFERENCES owner_table (o_idx)
+);
+
+-- 숙소 시설 LODGING_FACILITY
+create table lodging_facility (
+  ldg_idx INT,
+  dormitory TINYINT(1),
+  privateroom TINYINT(1),
+  condo TINYINT(1),
+  womenonly TINYINT(1),
+  wifi TINYINT(1),
+  kitchen TINYINT(1),
+  elevator TINYINT(1),
+  locker TINYINT(1),
+  parking TINYINT(1),
+  breakfast TINYINT(1),
+  lunch TINYINT(1),
+  dinner TINYINT(1),
+  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx)
+);
+
+-- 객실 ROOM
+create table room (
+  r_idx INT AUTO_INCREMENT PRIMARY KEY,
+  ldg_idx INT,
+  r_name VARCHAR(50) NOT NULL,
+  r_price INT NOT NULL,
+  r_type VARCHAR(10) NOT NULL,
+  r_nop INT NOT NULL,
+  r_minimum INT,
+  r_unisex VARCHAR(5) NOT NULL,
+  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx)
+);
+
 -- 예약 RESERVATION
 create table reservation (
   res_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,51 +101,6 @@ create table like_table (
   FOREIGN KEY (u_idx) REFERENCES user (u_idx)
 );
 
--- 숙소 LODGING
-create table lodging (
-  ldg_idx INT AUTO_INCREMENT PRIMARY KEY,
-  o_idx INT,
-  ldg_name VARCHAR(50) NOT NULL,
-  ldg_addr VARCHAR(100) NOT NULL,
-  ldg_tel VARCHAR(20) NOT NULL,
-  ldg_info TEXT,
-  ldg_maxnop INT NOT NULL,
-  toilet INT NOT NULL,
-  shower INT NOT NULL,
-  FOREIGN KEY (o_idx) REFERENCES owner_table (o_idx)
-);
-
--- 숙소 시설 LODGING_FACILITY
-create table lodging_facility (
-  ldg_idx INT,
-  dormitory TINYINT(1),
-  privateroom TINYINT(1),
-  condo TINYINT(1),
-  womenonly TINYINT(1),
-  wifi TINYINT(1),
-  kitchen TINYINT(1),
-  elevator TINYINT(1),
-  locker TINYINT(1),
-  parking TINYINT(1),
-  breakfast TINYINT(1),
-  lunch TINYINT(1),
-  dinner TINYINT(1),
-  FOREIGN KEY (res_idx) REFERENCES reservation (res_idx)
-);
-
--- 객실 ROOM
-create table room (
-  r_idx INT AUTO_INCREMENT PRIMARY KEY,
-  ldg_idx INT,
-  r_name VARCHAR(50) NOT NULL,
-  r_price INT NOT NULL,
-  r_type VARCHAR(10) NOT NULL,
-  r_nop INT NOT NULL,
-  r_minimum INT,
-  r_unisex VARCHAR(5) NOT NULL,
-  FOREIGN KEY (ldg_idx) REFERENCES lodging (ldg_idx)
-);
-
 -- 리뷰 REVIEW
 create table review (
   rv_idx INT AUTO_INCREMENT PRIMARY KEY,
@@ -134,6 +134,3 @@ create table community_comment (
   FOREIGN KEY (u_idx) REFERENCES user (u_idx),
   FOREIGN KEY (cmm_idx) REFERENCES community (cmm_idx)
 );
-
-
-
