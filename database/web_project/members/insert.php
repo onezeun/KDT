@@ -56,12 +56,22 @@
   // );
 
   /* 3. DB 연결 파일 불러오기*/
-  include "..inc/dbcon.php";
+  include "../inc/dbcon.php";
 
   /* 쿼리 작성 */
   // 변수명 지어서 저장
-  $sql = "insert into members(u_name, u_id, pwd, mobile, birth, email, ps_code, addr_b, addr_d,gender, reg_date) values('$u_name', '$u_id', '$pwd','$mobile', '$birth', '$email','$ps_code', '$addr_b', '$addr_d','$gender', '$reg_date');";
+  $sql = "insert into members(";
+  $sql .= "u_name, u_id, pwd, ";
+  $sql .= "mobile, birth, email, ";
+  $sql .= "ps_code, addr_b, addr_d,";
+  $sql .= "gender, reg_date";
+  $sql .= ") values(";
+  $sql .= "'$u_name', '$u_id', '$pwd',";
+  $sql .= "'$mobile', '$birth', '$email',";
+  $sql .= "'$ps_code', '$addr_b', '$addr_d',";
+  $sql .= "'$gender', '$reg_date');";
 
+  
   /* 4. 데이터베이스에 쿼리 전송 */
   // mysqli_query("DB 연결객체", "전송할 쿼리");
   mysqli_query($dbcon, $sql);
