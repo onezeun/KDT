@@ -161,7 +161,6 @@ $(document).ready(function () {
     applyCheck();
   });
 
-
   $('#join_btn').on('click', function () {
     if (
       !nameCheck() ||
