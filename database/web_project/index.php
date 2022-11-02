@@ -15,7 +15,7 @@
     font-size: 20px
   }
 
-  ^ .pnt_name {
+  .pnt_name {
     margin-right: 10px
   }
   </style>
