@@ -154,3 +154,9 @@ SQL Server CREATE TABLE TEAM (
   20 YES BIRTH_DATE DATE 3 YES SOLAR CHAR(1)
   1 YES HEIGHT SMALLINT 
   2 YES WEIGHT SMALLINT 2 YES
+
+
+
+UPDATE members as A, ( select idx, IFNULL(reg_date, now()) as m_date FROM members) as B
+SET A.reg_date = B.m_date
+WHERE A.idx = B.idx AND A.idx BETWEEN 21 AND 25;
