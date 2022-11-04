@@ -15,12 +15,42 @@
   // 전체 데이터 가져오기
   $total = mysqli_num_rows($result);
 
-  // DB에서 데이터 가져오기
-  // mysqli_fetch_row
-  // mysqli_num_row
-  // $array = mysqli_fetch_array($result);
+  /* paging */
 
-  // DB 종료
+  // paging : 한 페이지 당 보여질 목록 수
+  $list_num = 5;
+
+  // paging : 한 블럭 당 페이지 수
+  $page_num = 3;
+
+  // paging : 현재 페이지
+  $page = isset($page) ? $page : 1;
+
+  // paging : 전체 페이지 수 = 전체 데이터 / 페이지 당 목록 수
+  // 관련 함수 - ceil : 올림값 / floor : 내림값 / round : 반올림
+  $total_page = ceil($total / $list_num);
+
+  // paging : 전체 블럭 수 
+  $total_block = ceil($total_page / $page_num);
+
+  // paging : 현재 블럭 번호 = 현재 페이지 번호 / 블럭 당 페이지 수
+  $now_block = ceil($page / $page_num);
+
+  // paging : 블럭당 시작 페이지 번호 = (해당 글의 블럭 번호 -1) * 블럭 당 페이지 수 + 1
+  $s_pageNum = ($now_block - 1 ) * $page_num + 1;
+
+  if($s_pageNum <= 0) {
+    $s_pageNum = 1;
+  };
+
+  // paging : 블럭당 마지막 페이지 번호 = 현재 블럭 번호 * 블럭 당 페이지 수
+  $e_pageNum = $now_block * $page_num;
+
+  // 블럭 당 마지막 페이지 번호가 전체 페이지 수를 넘지 않도록
+  if($e_pageNum > $total_page) {
+    $e_pageNum = $total_page;
+  };
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -82,10 +112,20 @@
       <td class="modify">&nbsp;</td>
     </tr>
 
+    <!-- DB에서 데이터 가져오기 -->
   <?php 
     /* for($i=1; $i<=$total; $i++) { */
     $i = 1;
     while($array = mysqli_fetch_array($result)) { 
+
+      // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 -1) * 페이지당 보여질 목록 수
+      $start = ($page - 1) * $list_num;
+
+      // paging : 시작번호부터 페이지 당 보여질 쿼리 작성
+      // limit 몇번부터 몇개 / mssql : top, oracle : rownum
+      $sql = "select * from members limit $start, $last_num;";
+
+      mysqli_query($dbcon, $sql);
   ?>
     <tr class="mem_list_content">
       <td><?php echo $i; ?></td>
