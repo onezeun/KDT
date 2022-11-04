@@ -3,6 +3,7 @@
 include "../inc/session.php";
 
 // 데이터 가져오기
+$g_idx = $_POST["g_idx"]; // 관리자가 선택한 사용자 idx를 hidden 필드로 전송
 $pwd = $_POST["pwd"];
 $mobile = $_POST["mobile"];
 $email_id = $_POST["email_id"];
@@ -40,13 +41,12 @@ $sql .= "ps_code='$ps_code', ";
 $sql .= "addr_b='$addr_b', ";
 $sql .= "addr_d='$addr_d', ";
 $sql .= "gender='$gender' ";
-$sql .= "where idx=$s_idx;";
+$sql .= "where idx=$g_idx;";
 // echo $sql;
 
 // 비밀번호를 입력하지 않은 경우
-$sql_nPwd = "update members set mobile='$mobile', email='$email', birth='$birth', ps_code='$ps_code', addr_b='$addr_b', addr_d='$addr_d', gender='$gender' where idx=$s_idx;";
+$sql_nPwd = "update members set mobile='$mobile', email='$email', birth='$birth', ps_code='$ps_code', addr_b='$addr_b', addr_d='$addr_d', gender='$gender' where idx=$g_idx;";
 // echo $sql_nPwd;
-
 
 // 쿼리 전송
 // mysqli_query(DB 연결객체, 전송할 쿼리)
@@ -63,7 +63,7 @@ mysqli_close($dbcon);
 echo "
     <script type=\"text/javascript\">
         alert(\"수정되었습니다.\");
-        location.href = \"member_info.php\";
+        location.href = \"member_info.php?g_idx=$g_idx\";
     </script>
     ";
 ?>

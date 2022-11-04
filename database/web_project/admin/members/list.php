@@ -89,7 +89,7 @@
       <td><?php echo $array["gender"]; ?></td>
       <td><?php echo $array["reg_date"]; ?></td>
       <td>
-        <a href="#">[수정]</a>
+        <a href="member_info.php?g_idx=<?php echo $array['idx']?>">[수정]</a>
         <a href="#">[삭제]</a>
       </td>
     </tr>
