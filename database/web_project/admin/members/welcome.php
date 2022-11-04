@@ -12,7 +12,7 @@
 <body>
     <p>가입이 완료되었습니다.</p>
     <p>
-        <a href="../index.html">메인 페이지로 이동</a>
+        <a href="../index.php">메인 페이지로 이동</a>
     </p>
 </body>
 </html>
