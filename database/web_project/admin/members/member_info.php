@@ -67,10 +67,10 @@ $array = mysqli_fetch_array($result);
     };
 
     function mem_del() {
-      var rtn_val = confirm("정말 탈퇴하시겠습니까?");
+      var rtn_val = confirm("정말 삭제하시겠습니까?");
       if (rtn_val == true) {
-        // location.href = "member_delete.php?g_idx=<?php echo $array['idx']; ?> ";
-        location.href = "member_delete.php";
+        location.href = "member_delete.php?g_idx=<?php echo $array['idx']; ?> ";
+        // location.href = "member_delete.php";
       };
     };
   </script>
@@ -158,7 +158,7 @@ $array = mysqli_fetch_array($result);
       <p>
         <button type="button" onclick="history.back()">이전 페이지</button>
         <button type="submit">정보수정</button>
-        <button type="button" onclick="mem_del()">회원탈퇴</button>
+        <button type="button" onclick="mem_del()">회원삭제</button>
       </p>
     </fieldset>
   </form>

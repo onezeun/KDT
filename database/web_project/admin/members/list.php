@@ -52,6 +52,15 @@
 
     td a {font-size:14px;}
   </style>
+  <script type=text/javascript>
+      function mem_del(g_no) {
+      var rtn_val = confirm("정말 삭제하시겠습니까?");
+      if (rtn_val == true) {
+        location.href = "member_delete.php?g_idx=" + g_no;
+        // location.href = "member_delete.php";
+      };
+    };
+  </script>
 </head>
 
 <body>
@@ -76,7 +85,7 @@
   <?php 
     /* for($i=1; $i<=$total; $i++) { */
     $i = 1;
-    while($array = mysqli_fetch_array($result)) {
+    while($array = mysqli_fetch_array($result)) { 
   ?>
     <tr class="mem_list_content">
       <td><?php echo $i; ?></td>
@@ -90,7 +99,7 @@
       <td><?php echo $array["reg_date"]; ?></td>
       <td>
         <a href="member_info.php?g_idx=<?php echo $array['idx']?>">[수정]</a>
-        <a href="#">[삭제]</a>
+        <a href="#" onclick="mem_del(<?php echo $array['idx']?>)">[삭제]</a>
       </td>
     </tr>
   <?php 
