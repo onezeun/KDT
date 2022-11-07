@@ -1,12 +1,9 @@
 <?php
-include "../inc/session.php";
-include "../inc/login_check.php";
-
 // DB 연결
 include "../inc/dbcon.php";
 
 // 쿼리 작성
-$sql = "select * from members;";
+$sql = "select * from notice;";
 
 // 쿼리 전송
 $result = mysqli_query($dbcon, $sql);
@@ -21,7 +18,7 @@ $list_num = 5;
 $page_num = 3;
 
 // paging : 현재 페이지
-$page = isset($_GET["page"]) ? $_GET["page"] : 1 ;
+$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
 // paging : 전체 페이지 수 = 전체 데이터 / 페이지 당 목록 수,  ceil : 올림값, floor : 내림값, round : 반올림
 $total_page = ceil($total / $list_num);
@@ -54,7 +51,7 @@ if($e_pageNum > $total_page){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원관리</title>
+    <title>공지사항</title>
     <style>
         a{text-decoration:none;margin:0 5px}
 
@@ -66,55 +63,37 @@ if($e_pageNum > $total_page){
             font-size:16px;
             text-align:center
         }
-        .mem_list_set .pager{
-            width:1440px
+        .notice_list_set .pager{
+            width:1440px;
         }
-        .mem_list_title{
+        .notice_list_title{
             border-top:2px solid #999;
             border-bottom:1px solid #999
         }
-        .mem_list_content{
+        .notice_list_content{
             border-bottom:1px solid #999;
         }
         .no{width:40px}
-        .u_name{width:60px}
-        .u_id{width:100px}
-        .mobile{width:120px}
-        .birth{width:100px}
-        .email{width:180px}
-        .address{width:360px}
-        .gender{width:40px}
-        .reg_date{width:120px}
-        .modify{width:120px}
+        .n_title{width: 500px;}
+        .witer{width: 100px;}
+        .w_date{width: 150px;}
+        .cnt{width: 100px;}
 
         table a:hover{color:rgb(255, 128, 0)}
     </style>
-    <script>
-        function mem_del(g_no){
-            var rtn_val = confirm("정말 삭제하시겠습니까?");
-            if(rtn_val == true){
-                location.href = "member_delete.php?g_idx=" + g_no;
-            };
-        };
-    </script>
 </head>
 <body>
-    <?php include "../inc/sub_header.html"; ?>
+    <?php //include "../inc/sub_header.html"; ?>
     
     <!-- 콘텐트 -->
-    <p>전체 회원수 <?php echo $total; ?>명</p>
-    <table class="mem_list_set">
-        <tr class="mem_list_title">
+    <p>전체 <?php echo $total; ?>개</p>
+    <table class="notice_list_set">
+        <tr class="notice_list_title">
             <th class="no">번호</th>
-            <th class="u_name">이름</th>
-            <th class="u_id">아이디</th>
-            <th class="mobile">전화번호</th>
-            <th class="birth">생년월일</th>
-            <th class="email">이메일</th>
-            <th class="address">주소</th>
-            <th class="gender">성별</th>
-            <th class="reg_date">가입일</th>
-            <td class="modify">관리</td>
+            <th class="n_title">제목</th>
+            <th class="writer">작성자</th>
+            <th class="w_date">날짜</th>
+            <th class="cnt">조회수</th>
         </tr>
         <?php
             // paging : 해당 페이지의 글 시작 번호 = (현재 페이지 번호 - 1) * 페이지 당 보여질 목록 수
@@ -122,7 +101,7 @@ if($e_pageNum > $total_page){
 
             // paging : 시작번호부터 페이지 당 보여질 목록수 만큼 데이터 구하는 쿼리 작성
             // limit 몇번부터, 몇 개
-            $sql = "select * from members limit $start, $list_num;";
+            $sql = "select * from notice limit $start, $list_num;";
             // echo $sql;
             /* exit; */
 
@@ -134,38 +113,20 @@ if($e_pageNum > $total_page){
             $i = $start + 1;
             while($array = mysqli_fetch_array($result)){
         ?>
-        <tr class="mem_list_content">
+        <tr class="notice_list_content">
             <td><?php echo $i; ?></td>
-            <td><?php echo $array["u_name"]; ?></td>
-            <td><?php echo $array["u_id"]; ?></td>
-            <?php
-            // $mobile = "00011112222";
-            /* $mobile = strval($array["mobile"]);
-            $mobile1 = substr($mobile, 0, 3);
-            $mobile2 = substr($mobile, 3, -4);
-            $mobile3 = substr($mobile, -4);
-            $mobile = $mobile1."-".$mobile2."-".$mobile3;
-            echo "<td>".$mobile."</td>";  */
-            ?>
-            <td><?php echo $array["mobile"]; ?></td>
-            <td><?php echo $array["birth"]; ?></td>
-            <td><?php echo $array["email"]; ?></td>
-            <?php
-                $address = $array["ps_code"]." ".$array["addr_b"]." ".$array["addr_d"];
-            ?>
-            <td><?php echo $address; ?></td>
-            <td><?php echo $array["gender"]; ?></td>
-            <?php
-                /* $reg_date = substr($array["reg_date"], 0, 10);
-                echo "
-                <td>$reg_date; </td>
-                "; */
-            ?>
-            <td><?php echo $array["reg_date"]; ?></td>
-            <td>
-                <a href="member_info.php?g_idx=<?php echo $array["idx"]; ?>">[수정]</a>
-                <a href="#" onclick="mem_del(<?php echo $array['idx']; ?>)">[삭제]</a>
+            <td class="notice_content_title">
+              <a href="view.php?n_idx=<?php echo $array["idx"]; ?>">  
+              <?php echo $array["n_title"]; ?>
+              </a>
             </td>
+            <td><?php echo $array["writer"]; ?></td>
+            <?php
+                $w_date = substr($array["w_date"], 0, 10);
+            ?>
+            <td><?php echo $w_date; ?></td>
+            <td><?php echo $array["cnt"]; ?></td>
+
         </tr>
         <?php
                 $i++;
