@@ -3,6 +3,7 @@
 include "../inc/session.php";
 
 // 데이터 가져오기
+// $g_idx = $_GET["g_idx"]; // 관리자가 선택한 사용자 idx를 form action으로 전송
 $g_idx = $_POST["g_idx"]; // 관리자가 선택한 사용자 idx를 hidden 필드로 전송
 $pwd = $_POST["pwd"];
 $mobile = $_POST["mobile"];
@@ -47,6 +48,7 @@ $sql .= "where idx=$g_idx;";
 // 비밀번호를 입력하지 않은 경우
 $sql_nPwd = "update members set mobile='$mobile', email='$email', birth='$birth', ps_code='$ps_code', addr_b='$addr_b', addr_d='$addr_d', gender='$gender' where idx=$g_idx;";
 // echo $sql_nPwd;
+
 
 // 쿼리 전송
 // mysqli_query(DB 연결객체, 전송할 쿼리)

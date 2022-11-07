@@ -1,11 +1,11 @@
 <?php
-  if (!$s_idx || $s_name != '관리자') {
+if(!$s_idx || $s_id!="admin"){
     echo "
-      <script type=\"text/javascript\">
-        alert(\"관리자 로그인이 필요합니다.\");
-        location.href = \"http://localhost/KDT/database/web_project/index.php\";
-      </script>
+        <script type=\"text/javascript\">
+            alert(\"관리자 로그인이 필요합니다.\");
+            location.href = \"http://localhost/web_project/admin/login/login.php\";
+        </script>
     ";
-    exit();
-  }
+    exit;
+};
 ?>

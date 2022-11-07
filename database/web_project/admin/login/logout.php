@@ -10,7 +10,7 @@ unset($_SESSION["s_id"]);
 // 페이지 이동
 echo "
     <script type=\"text/javascript\">
-        location.href=\"../index.php\";
+        location.href=\"../../index.php\";
     </script>
 ";
 ?>
