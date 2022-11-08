@@ -1,6 +1,22 @@
 <?php include 
 "../inc/session.php";
 "../inc/admin_check.php";
+
+// 데이터 가져오기
+$n_idx = $_GET['n_idx'];
+
+// DB 연결
+include "../inc/dbcon.php";
+
+// 쿼리 작성
+$sql = "select * from notice where idx = '$n_idx';";
+
+// 쿼리 전송
+$result = mysqli_query($dbcon, $sql);
+
+// DB에서 데이터 가져오기
+$array = mysqli_fetch_array($result);
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -31,22 +47,22 @@
 </head>
 
 <body>
-  <form name="notice_form" action="insert.php" method="post" onsubmit="return notice_form_check()">
+  <form name="notice_form" action="edit.php?n_idx=<?php echo $n_idx; ?>" method="post" onsubmit="return notice_form_check()">
     <fieldset>
       <legend>공지사항</legend>
       <p>
         작성자 <?php echo $s_name; ?>
-        <!-- <input type="hidden"> -->
+        <!-- <input type="hidden" name="n_idx" value="<>"> -->
       </p>
 
       <p>
         <label for="n_title">제목</label>
-        <input type="text" name="n_title" id="n_title">
+        <input type="text" name="n_title" id="n_title" value="<?php echo $array['n_title'];?>">
       </p>
 
       <p>
         <label for="n_content">내용</label>
-        <textarea cols="60" rows="10" type="text" name="n_content" id="n_content"></textarea>
+        <textarea cols="60" rows="10" type="text" name="n_content" id="n_content"><?php echo $array['n_content'];?></textarea>
       </p>
 
       <p>
