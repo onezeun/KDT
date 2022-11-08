@@ -5,7 +5,7 @@ include "../inc/session.php";
 $g_idx = $_GET["g_idx"];
 
 // 로그인 사용자만 접근
-include "../inc/login_check.php";
+include "../inc/admin_check.php";
 
 // DB 연결
 include "../inc/dbcon.php";
