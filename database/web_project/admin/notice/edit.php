@@ -11,7 +11,7 @@ $n_content = $_POST['n_content'];
 $w_date = date('Y-m-d');
 
 // 쿼리 작성
-if ($_FILES['up_file'] != null) {
+if ($_FILES['up_file']["name"] != null) {
   $tmp_name = $_FILES['up_file']['tmp_name'];
   $f_name = $_FILES['up_file']['name'];
   $up = move_uploaded_file($tmp_name, "../data/$name");
