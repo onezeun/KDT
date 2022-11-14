@@ -1,40 +1,56 @@
 <?php
 // 작성자 입력을 위한 session 가져오기
-include '../inc/session.php';
-// include "../inc/login_check.php"
+include "../inc/session.php";
 
 // 이전 페이지에서 값 가져오기
-$n_title = $_POST['n_title'];
-$n_content = $_POST['n_content'];
+$n_title = $_POST["n_title"];
+$n_content = $_POST["n_content"];
 
-//  작성일자
-$w_date = date('Y-m-d');
+// 파일 업로드
+if($_FILES["up_file"] != NULL){
+    $tmp_name = $_FILES["up_file"]["tmp_name"];
+    $f_name = $_FILES["up_file"]["name"];
+    $up = move_uploaded_file($tmp_name, "../data/$name");
+};
+/* echo $_FILES["up_file"]["tmp_name"]."/";
+echo $_FILES["up_file"]["name"]."/";
+echo $_FILES["up_file"]["type"]."/";
+echo $_FILES["up_file"]["size"];
+exit; */
+
+$f_type = $_FILES["up_file"]["type"];
+$f_size = $_FILES["up_file"]["size"];
+
+
+// 작성일자
+$w_date = date("Y-m-d");
 
 // 값 확인
-// echo "<p> 이름 : ".$n_title."</p>";
-// echo "<p> 내용 : ".$n_content."</p>";
-// echo "<p> 작성자 : ".$s_name."</p>";
-// echo "<p> 가입일 : ".$w_date."</p>";
-// exit;
+/* echo "<p> 제목 : ".$n_title."</p>";
+echo "<p> 내용 : ".$n_content."</p>";
+echo "<p> 작성자 : ".$s_name."</p>";
+echo "<p> 가입일 : ".$w_date."</p>";
+exit; */
 
 // DB 연결
-include '../inc/dbcon.php';
+include "../inc/dbcon.php";
 
 // 쿼리 작성
-$sql = 'insert into notice(';
-$sql .= 'n_title, n_content, writer, w_date';
-$sql .= ') values(';
-$sql .= "'$n_title', '$n_content', '$s_name', '$w_date'";
-$sql .= ');';
-
-// echo $sql;
+$sql = "insert into notice(";
+$sql .= "n_title, n_content, writer, w_date, ";
+$sql .= "f_name, f_type, f_size";
+$sql .= ") values(";
+$sql .= "'$n_title', '$n_content', '$s_name', '$w_date', ";
+$sql .= "'$f_name', '$f_type', '$f_size'";
+$sql .= ");";
+/* echo $sql;
+exit; */
 
 // 데이터베이스에 쿼리 전송
-// mysqli_query("DB 연결객체", "전송할 쿼리");
 mysqli_query($dbcon, $sql);
 
+
 // DB 접속 종료
-// mysqli_close("연결객체");
 mysqli_close($dbcon);
 
 // 리디렉션
@@ -43,17 +59,4 @@ echo "
         location.href = \"list.php\";
     </script>
     ";
-
-/* echo `
-    <script type="text/javascript">
-        // location.href = "이동할 페이지 주소";
-        location.href = "welcome.php";
-    </script>
-    `; */
 ?>
-
-<!-- 리디렉션 -->
-<!-- <script type="text/javascript">
-    // location.href = "이동할 페이지 주소";
-    location.href = "welcome.php";
-</script> -->

@@ -124,7 +124,7 @@ if ($e_pageNum > $total_page) {
   <?php if ($s_id == 'admin') { ?>
   <p class="write_area">
     <span>전체 <?php echo $total; ?>개</span>
-    <span><a href="write.php">글쓰기</a></span>
+    <span><a href="../admin/notice/write.php">글쓰기</a></span>
   </p>
   <?php } else { ?>
   <p>전체 <?php echo $total; ?>개</p>

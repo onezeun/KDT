@@ -1,6 +1,6 @@
-<?php include 
-"../inc/session.php";
-"../inc/admin_check.php";
+<?php
+include '../inc/session.php';
+include '../inc/admin_check.php';
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -9,7 +9,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>글쓰기</title>
+  <title>공지사항</title>
+  <style>
+  input[type=checkbox] {
+    width: 20px;
+    height: 20px
+  }
+
+  a {
+    text-decoration: none;
+    margin: 0 5px
+  }
+  </style>
   <script>
   function notice_check() {
     var n_title = document.getElementById("n_title");
@@ -31,7 +42,9 @@
 </head>
 
 <body>
-  <form name="notice_form" action="insert.php" method="post" onsubmit="return notice_form_check()">
+  <?php include '../inc/sub_header.html'; ?>
+  <form name="notice_form" action="insert.php" method="post" enctype="multipart/form-data"
+    onsubmit="return notice_check()">
     <fieldset>
       <legend>공지사항</legend>
       <p>
@@ -46,7 +59,12 @@
 
       <p>
         <label for="n_content">내용</label>
-        <textarea cols="60" rows="10" type="text" name="n_content" id="n_content"></textarea>
+        <textarea cols="60" rows="10" name="n_content" id="n_content"></textarea>
+      </p>
+
+      <p>
+        <label for="n_content">파일첨부</label>
+        <input type="file" name="up_file" id="up_file">
       </p>
 
       <p>

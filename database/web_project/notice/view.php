@@ -117,7 +117,7 @@ mysqli_query($dbcon, $sql);
   <h2>공지사항</h2>
   <?php if ($s_id == 'admin') { ?>
   <p class="write_area">
-    <span><a href="write.php">글쓰기</a></span>
+    <span><a href="../admin/notice/write.php">글쓰기</a></span>
   </p>
   <?php }; ?>
   <table class="notice_view_set">
