@@ -47,6 +47,10 @@ address {
   top: -9999px
 }
 
+.txthide {
+  text-indent: -9999px
+}
+
 /* header */
 .header {
   height: 60px;
@@ -276,24 +280,55 @@ address {
 /* cont bottom */
 .cont_bottom_wrap {
   display: flex;
-  justify-content: space-between
+  flex-direction: column;
 }
 
 /* community */
 .community {
-  width: 48%
+  margin-bottom: 10px;
 }
+
+.menu_bar .menu_select {
+  background: #10218b;
+  border: 1px solid #10218b ;
+}
+
+.menu_bar .menu_select a {
+  color: #fff;
+}
+
+/* menu bar */
+.menu_bar {
+  margin-bottom: 10px;
+}
+
+.menu_bar ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu_bar li {
+  width: 33.3%;
+  height: 40px;
+  display: table;
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 40px;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+.menu_bar a {
+  color: #666666;
+  font-weight: bold;
+}
+
 
 /* notice */
 .notice {
+  width: 100%;
   margin-bottom: 10px
-}
-
-.notice h2 {
-  background: #0062c3;
-  font-size: 15px;
-  color: #fff;
-  padding: 10px 0 10px 20px
 }
 
 .notice li {
@@ -307,14 +342,8 @@ address {
 
 /* news */
 .news {
+  width: 100%;
   margin-bottom: 10px
-}
-
-.news h2 {
-  background: #0062c3;
-  font-size: 15px;
-  color: #fff;
-  padding: 10px 0 10px 20px
 }
 
 .news li {
@@ -328,14 +357,8 @@ address {
 
 /* employ */
 .employ {
+  width: 100%;
   margin-bottom: 10px
-}
-
-.employ h2 {
-  background: #0062c3;
-  font-size: 15px;
-  color: #fff;
-  padding: 10px 0 10px 20px
 }
 
 .employ li {
@@ -349,7 +372,8 @@ address {
 
 /* info_wrap */
 .info_wrap {
-  width: 48%;
+  width: 100%;
+  margin: auto;
   border: 1px solid #aaa;
   box-sizing: border-box;
   align-self: flex-start
@@ -364,7 +388,7 @@ address {
 
 .open_biz ul {
   background: #73b41c;
-  padding: 10px;
+  padding: 20px 10px;
   color: #fff;
   display: flex;
   flex-wrap: wrap
@@ -386,7 +410,7 @@ address {
 
 .customer ul {
   background: #0e94b1;
-  padding: 10px;
+  padding: 20px 10px;
   color: #fff;
   display: flex;
   flex-wrap: wrap
@@ -408,7 +432,7 @@ address {
 
 .adv ul {
   background: #6a62ad;
-  padding: 10px;
+  padding: 20px 10px;
   color: #fff;
   display: flex;
   flex-wrap: wrap
