@@ -288,6 +288,12 @@ address {
   margin-bottom: 10px;
 }
 
+.community h2 {
+  position: absolute;
+  top : -9999px;
+  left: -9999px;
+}
+
 .menu_bar .menu_select {
   background: #10218b;
   border: 1px solid #10218b ;
@@ -299,6 +305,7 @@ address {
 
 /* menu bar */
 .menu_bar {
+  display: block;
   margin-bottom: 10px;
 }
 
@@ -343,7 +350,8 @@ address {
 /* news */
 .news {
   width: 100%;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  display: none;
 }
 
 .news li {
@@ -358,7 +366,8 @@ address {
 /* employ */
 .employ {
   width: 100%;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  display: none;
 }
 
 .employ li {
@@ -501,4 +510,58 @@ address {
 
 .blue_txt {
   color: #2e7bd7
+}
+
+@media screen and (min-width:800px) {
+  /* cont bottom */
+  .cont_bottom_wrap {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .community {
+    width: 48%
+  }
+
+  .community h2 {
+    position: static;
+  }
+
+  .menu_bar {
+    display: none;
+  }
+
+  .notice h2 {
+    background: #0062c3;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 0 10px 20px
+  }
+
+  .news {
+    display: block;
+  }
+
+  .news h2 {
+    background: #0062c3;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 0 10px 20px
+  }
+
+  .employ {
+    display: block;
+  }
+
+  .employ h2 {
+    background: #0062c3;
+    font-size: 15px;
+    color: #fff;
+    padding: 10px 0 10px 20px
+  }
+
+  .info_wrap {
+    margin: 0;
+    width: 48%;
+  }
 }
