@@ -1,7 +1,7 @@
 {
-  "name": "Hello, PWA",
-  "short_name": "PWA",
-  "description": "start for PWA",
+  "name": "Timer",
+  "short_name": "Timer",
+  "description": "Timer",
   "scope": ".",
   "start_url": "./",
   "display": "fullscreen",
