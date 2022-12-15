@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="main">
+        <p>fruits의 전체 값 : {{ fruits }}</p>
+        <p>fruits의 첫번째 값 : {{ fruits[0] }}</p>
+        <p>fruits의 첫번째 값 : {{ fruits[1] }}</p>
+        <p>fruits의 첫번째 값 : {{ fruits[2] }}</p>
+    </div>
+
+    <script>
+        var main = new Vue({
+            el:'#main',
+            data:{
+                fruits:['사과', '배', '복숭아']
+            }
+        });
+    </script>
+</body>
+</html>
