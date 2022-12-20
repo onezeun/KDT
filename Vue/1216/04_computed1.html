@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <p>텍스트 입력 : <input type="text" v-model:value="originMsg"></p>
+        <p>원본 : {{ originMsg }}</p>
+        <p>소문자로 변환 : {{ lowerCaseMsg }}</p>
+        <p>대문자로 변환 : {{ upperCaseMsg }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                originMsg: 'Hello, Vue JS!'
+            },
+            computed:{
+                lowerCaseMsg: function(){
+                    return this.originMsg.toLowerCase()
+                },
+                upperCaseMsg: function(){
+                    return this.originMsg.toUpperCase()
+                }
+            }
+        });
+    </script>
+</body>
+</html>

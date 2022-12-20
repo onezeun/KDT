@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트 & 템플릿</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        .friuts_style{
+            border:3px solid teal;
+            padding:10px;
+            margin-bottom:10px
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ sTitle }}</h1>
+        <favorite-fruits></favorite-fruits>
+        <favorite-fruits></favorite-fruits>
+    </div>
+    <script>
+        Vue.component('favorite-fruits', {
+            data: function(){
+                return {
+                    fruits:[
+                        {fruite_name:'사과', fruite_count:10, fruite_price:'1000'},
+                        {fruite_name:'배', fruite_count:20, fruite_price:'1500'},
+                        {fruite_name:'복숭아', fruite_count:30, fruite_price:'2000'}
+                    ]
+                }
+            },
+            template:`
+                <div class="friuts_style">
+                    <div v-for="item in fruits">
+                        <p> 좋아하는 과일 : {{ item.fruite_name }}</p>
+                    </div>
+                </div>
+            `
+        }),
+        new Vue({
+            el:'#app',
+            data:{
+                sTitle:'Component & Template'
+            }
+        });
+    </script>
+</body>
+</html>
