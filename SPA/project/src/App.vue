@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <h1>안녕하세요!</h1>
+  <!-- 라우터 컴포넌트에 연결된 컴포넌트 렌더링 -->
+    <router-view />
+    <hr>
+    <p>
+      라우터 링크 사용 : 
+      <router-link to="/main">메인페이지</router-link>
+      <router-link to="/sub">서브페이지</router-link>
+    </p>
   </div>
 </template>
 
