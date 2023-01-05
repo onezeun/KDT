@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="main">
+    <h1>값 출력</h1>
+    <p>fruits의 전체 값 : {{ fruit_list }}</p>
+    <p>fruits의 첫번째 값 : {{ fruit_list[0] }}</p>
+    <p>fruits의 첫번째 값 : {{ fruit_list[1] }}</p>
+    <p>fruits의 첫번째 값 : {{ fruit_list[2] }}</p>
+
+    <hr>
+    <h2>반복문을 이용한 값 출력</h2>
+    <ul>
+      <!-- <li v-for="A in B">{{ }}</li>
+        B: 배열이 포함되어 있는 변수 (입력)
+        A: 배열의 값을 받아올 변수 (출력)
+      -->
+      <li v-for="item in fruit_list">{{ item }}</li>
+    </ul>
+
+    <hr>
+    <h2>키와 값을 가지는 배열 값 출력</h2>
+    <ul>
+      <p>배열 그대로 출력</p>
+      <li v-for="item2 in fruit_info">{{ item2 }}</li>
+    </ul>
+
+    <ul>
+      <p>값 출력</p>
+      <li v-for="item2 in fruit_info">{{ item2.fruit_name }} - {{ item2.fruit_price }}원 / 남은 수량 : {{ item2.fruit_num }}개</li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#main',
+      data: {
+        fruit_list: ['사과', '배', '복숭아'],
+        fruit_info: [
+          { fruit_name: '사과', fruit_num: 10, fruit_price: '500' },
+          { fruit_name: '배', fruit_num: 20, fruit_price: '700' },
+          { fruit_name: '딸기', fruit_num: 30, fruit_price: '300' }
+        ],
+      },
+    });
+  </script>
+</body>
+
+</html>

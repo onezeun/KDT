@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="main">
+    <h1>{{ bFlag }}</h1>
+    <p>임의 값이 0.5 이상이면 앞면, 이하이면 뒷면</p>
+    <h2 v-if="bFlag > 0.5 ">결과 : 앞면</h2>
+    <h2 v-else>결과 : 뒷면</h2>
+    <p>
+      <button type="button" onclick="location.reload()">RELOAD</button>
+    </p>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: '#main',
+      data: {
+        bFlag: Math.random()
+      }
+    });
+  </script>
+</body>
+
+</html>

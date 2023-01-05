@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-bind</title>
+  <!-- 뷰 CDN 연결 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="App">
+    <!-- 속성제어 v-bind -->
+    <p>value : <input type="text" value="2023"></p>
+    <p>v-bind : <input type="text" :value="sData"></p>
+    <hr>
+  </div>
+  <script>
+      new Vue({
+        el: '#App',
+        data: {
+          sData: new Date(),
+        }
+      });
+  </script>
+</body>
+
+</html>

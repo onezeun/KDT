@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>v_on</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ sTitle }}</h1>
+    <button v-on:click="fnChangeTitle">메세지 변경하기</button>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      sTitle: '안녕하세요!'
+    },
+    methods: {
+      fnChangeTitle() {
+        this.sTitle = 'Hello, VueJS'
+      }
+    }
+  });
+</script>
+
+</html>
