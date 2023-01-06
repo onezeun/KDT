@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Vuex를 사용하기 위해 CDN 연결 -->
+    <script src="https://unpkg.com/vuex@3"></script>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      // 상태 = state (바뀔 수 있는 값)
+      data(){
+        return {
+          count: 0
+        }
+      },
+      // v-on 약식 기호 : @
+      template:`
+        <div>
+          <h2>{{ count }}</h2>
+          <p><button type="button" @click="increment">CLICK</button></p>
+        </div>
+      `,
+      methods: {
+        increment(){
+          this.count++;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

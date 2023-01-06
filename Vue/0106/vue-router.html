@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>라우터</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <!-- 라우터를 사용하기 위해 CDN 연결 -->
+  <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
+  <style>
+    .router-link-active{
+      text-decoration:none;
+      color:tomato;
+      font-weight: bold
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>라우터 사용하기</h2>
+    <router-link to="/">시작페이지</router-link>
+    <router-link to="/main">메인 페이지</router-link>
+    <router-link to="/sub">서브 페이지</router-link>
+    <hr>
+    <router-view></router-view>
+  </div>
+
+  <script>
+    // 컴포넌트 생성
+    const tmHome= {
+      template: `
+        <div class="start">
+          <h2>ㅎㅇㅎㅇ</h2>
+          <p>첫페이지</p>
+        </div>
+      `
+    };
+
+    const tmMain = {
+      template: `
+        <div class="main">
+          <h2>메인페이지</h2>
+          <p>여기는 메인페이지 입니다</p>
+        </div>
+      `
+    };
+
+    const tmSub = {
+      template: `
+      <div class="sub">
+        <h2>서브페이지</h2>
+        <p>여기는 서브페이지 입니다</p>
+      </div>
+      `
+    };
+
+
+    // 라우터 정의
+    const rtRoutes = [
+      {
+        path: '/',
+        component: tmHome
+      },
+      {
+        path: '/main',
+        component: tmMain
+      },
+      {
+        path: '/sub',
+        component: tmSub
+      }
+    ]
+
+    const router = new VueRouter({
+      routes : rtRoutes,
+    })
+
+    new Vue({
+      el: '#app',
+      router
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>props</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>좋아하는 과일 종류</h2>
+    <ul>
+      <favorite-fruits v-for="item in fruits" v-bind:fruit="item" v-bind:key="item.id"></favorite-fruits>
+      <hr>
+    </ul>
+    <ul>
+      <favorite-fruits v-for="item in fruits2" v-bind:fruit="item" v-bind:key="item.id"></favorite-fruits>
+    </ul>
+  </div>
+  <script>
+    Vue.component('favorite-fruits', {
+      props: ['fruit'],
+      template: `
+        <li>
+          {{ fruit.text }}
+        </li>
+      `,
+    }),
+
+      new Vue({
+        el: '#app',
+        data: {
+          fruits: [
+            { id: 0, text: '사과' },
+            { id: 1, text: '배' },
+            { id: 2, text: '딸기' }
+          ],
+          fruits2: [
+            { id: 0, text: '복숭아' },
+            { id: 1, text: '귤' },
+            { id: 2, text: '맛있다' }
+          ]
+        }
+      });
+  </script>
+</body>
+
+</html>
