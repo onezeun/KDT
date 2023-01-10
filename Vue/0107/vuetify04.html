@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <style>
+    /* 테두리설정 */
+    .border_style {
+      border: 1px solid tomato;
+      background: #9C0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+          <v-card max-width="400" min-height="400">
+            <v-img src="hamster.gif" aspect-ratio="1"/>
+            <v-card-text>
+              <div>
+                <h2 class="title primary--text mb-2">카드 UI</h2>
+                <p class="mb-0">카드 디자인에 출력될 텍스트 입력</p>
+              </div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="red white--text">확인</v-btn>
+              <v-btn outlined color="red">확인</v-btn>
+              <v-btn color="#9C27B0" dark>확인</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <!-- 필요한 Vue.js와 Vuetify.js의 자바스트립트 연결 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify()
+    })
+  </script>
+</body>
+
+</html>
